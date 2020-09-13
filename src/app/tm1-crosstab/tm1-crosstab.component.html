@@ -1,0 +1,22 @@
+
+
+<div class="table-responsive ">
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr *ngFor='let c of cubeColumns'>
+        <th *ngFor='let i of c'>
+          {{ i }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let o of cubeValues'>
+        <td *ngFor='let cell of o'>
+          {{ cell }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

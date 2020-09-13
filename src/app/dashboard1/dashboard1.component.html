@@ -1,3 +1,31 @@
-<h1>cube works</h1>
+<section>
+  <div class="container-fluid">
+    <!-- <header>
+      <h1 class="h3 display">Line of Business </h1>
+    </header> -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>TM1 Crosstab1</h4>
+          </div>
+          <div class="card-body">
+            <app-tm1-crosstab [mdx]="mdxJson[0]"></app-tm1-crosstab>
+          </div>
+        </div>
+      </div>
 
-<div *ngFor='let c of cubes'>{{ c.Value }}</div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>TM1 Crosstab2</h4>
+          </div>
+          <div class="card-body">
+            <app-tm1-crosstab [mdx]="mdxJson[1]"></app-tm1-crosstab>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
