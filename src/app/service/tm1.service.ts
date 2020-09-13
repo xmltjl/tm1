@@ -58,15 +58,18 @@ export class TM1Service {
         }
 
         let cubeData: (string | number)[][] = [];
-        for (let t = 0; t < y_axes.Tuples.length; t++) {
+        for (let t = 0; t < y_axes.Cardinality; t++) {
           cubeData[t] = [];
           // insert row label
           for (let i = 0; i < y_axes.Hierarchies.length; i++) {
+            // Need to get the alias
             cubeData[t].push(y_axes.Tuples[t].Members[i].Name);
           }
           // insert values
           for (let j = 0; j < x_axes.Cardinality; j++) {
-            cubeData[t].push(Math.round(z_axes[t * j].Value));
+            cubeData[t].push(
+              Math.round(z_axes[t * x_axes.Cardinality + j].Value)
+            );
           }
         }
 
