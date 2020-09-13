@@ -12,20 +12,20 @@ const httpOptions = {
     // Authorization: 'Basic YWRtaW46',
 
     //Home
-    Authorization: 'Basic YWRtaW46',
+    // Authorization: 'Basic YWRtaW46',
 
     //wbc
-    // Authorization: 'Basic bWVsOm1lbHB3ZA==',
+    Authorization: 'Basic bWVsOm1lbHB3ZA==',
   }),
 };
 
 @Injectable({ providedIn: 'root' })
 export class TM1Service {
   //wbc
-  // url: string = 'https://10.104.112.113:11112/api/v1/';
+  url: string = 'https://10.104.112.113:11112/api/v1/';
 
   //home
-  url: string = 'https://localhost:44312/api/v1/';
+  // url: string = 'https://localhost:44312/api/v1/';
   mdxChanged = new EventEmitter<string>();
 
   constructor(private http: HttpClient) {}
@@ -57,7 +57,6 @@ export class TM1Service {
           }
         }
 
-
         let cubeData: (string | number)[][] = [];
         for (let t = 0; t < y_axes.Tuples.length; t++) {
           cubeData[t] = [];
@@ -75,9 +74,6 @@ export class TM1Service {
       })
     );
   }
-
-
-
 
   updateMdx(mdx: string): void {}
 }
