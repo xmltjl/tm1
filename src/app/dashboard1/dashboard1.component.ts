@@ -9,22 +9,18 @@ export class Dashboard1Component implements OnInit {
   //to chnage this to read from cube
   mdxJson = [
     ` {
-    "MDX": "SELECT
-      NON EMPTY { [LOB Centre To].[MIRB4152 - Business],[LOB Centre To].[MIRB4892 - Consumer]  }  ON COLUMNS,
-      NON EMPTY { [LOB Account].[INETII - Net interest income], [LOB Account].[NOINTE],[LOB Account].[SOPINC], [LOB Account].[XDIREX] } *
-                { [LOB Line of Business].[01], [LOB Line of Business].[03] } ON ROWS
+      "MDX": "
+      WITH MEMBER [LOB Centre To].[Description] AS [}ElementAttributes_LOB Account].([}ElementAttributes_LOB Account].[Description])
+      SELECT
+      NON EMPTY {  [LOB Account].[INETII], [LOB Account].[NOINTE],[LOB Account].[SOPINC], [LOB Account].[XDIREX] }
+      ON ROWS,
+                { [LOB Centre To].[Description], [LOB Centre To].[MIRB4152], [LOB Centre To].[MIRB4892] }
+      ON COLUMNS
       FROM [LOB Reporting]
-      WHERE ( [LOB Scenario].[Reportable Actual], [LOB Measure Reporting].[YTD], [LOB Period].[202005])"
-  }`,
-
-    ` {
-    "MDX": "SELECT
-      NON EMPTY {  [LOB Account].[INETII], [LOB Account].[NOINTE],[LOB Account].[SOPINC], [LOB Account].[XDIREX] } *
-                { [LOB Mode].[01], [LOB Mode].[02] } ON COLUMNS,
-      NON EMPTY { [LOB Centre To].[MIRB4152 - Business],[LOB Centre To].[MIRB4892 - Consumer]  } *
-                { [LOB Line of Business].[01], [LOB Line of Business].[02] } ON ROWS
-      FROM [LOB Reporting]
-      WHERE ( [LOB Scenario].[Reportable Actual], [LOB Measure Reporting].[YTD], [LOB Period].[202005])"
+      WHERE (
+      [LOB Scenario].[Reportable Actual],
+      [LOB Measure Reporting].[YTD], [LOB Period].[202005]
+      )"
   }`,
   ];
 
